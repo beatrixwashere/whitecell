@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://1m1lnddoy520"]
+
+[ext_resource type="FontFile" uid="uid://c2fck10de53iy" path="res://addons/whitecell/sprites/fonts/chakra_petch/chakra_petch_semibold.ttf" id="1_2dnf3"]
+[ext_resource type="PackedScene" uid="uid://cfc5xh024ml0b" path="res://addons/whitecell/scenes/list.tscn" id="2_wu7x4"]
+
+[node name="whitecell" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="main" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="header" type="Label" parent="main"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2dnf3")
+theme_override_font_sizes/font_size = 48
+text = "whitecell // 1.0.0"
+horizontal_alignment = 1
+
+[node name="listscroll" type="ScrollContainer" parent="main"]
+custom_minimum_size = Vector2(1000, 500)
+layout_mode = 2
+
+[node name="lists" type="HBoxContainer" parent="main/listscroll"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="s1" parent="main/listscroll/lists" instance=ExtResource("2_wu7x4")]
+layout_mode = 2
+
+[node name="s2" parent="main/listscroll/lists" instance=ExtResource("2_wu7x4")]
+layout_mode = 2
+color = Color(0.8, 0.4, 0, 1)
+list_name = "S2"
+
+[node name="s3" parent="main/listscroll/lists" instance=ExtResource("2_wu7x4")]
+layout_mode = 2
+color = Color(0.8, 0.6666667, 0, 1)
+list_name = "S3"
+
+[node name="complete" parent="main/listscroll/lists" instance=ExtResource("2_wu7x4")]
+layout_mode = 2
+color = Color(0.5333333, 0.8, 0, 1)
+list_name = "Complete"
+
+[node name="options" type="HBoxContainer" parent="main"]
+layout_mode = 2
+alignment = 1
+
+[node name="header" type="Label" parent="main/options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2dnf3")
+theme_override_font_sizes/font_size = 48
+text = "[placeholder]"
+horizontal_alignment = 1

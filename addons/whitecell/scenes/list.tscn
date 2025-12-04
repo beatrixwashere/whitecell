@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfc5xh024ml0b"]
+
+[ext_resource type="Shader" uid="uid://c7kcvln13lqga" path="res://addons/whitecell/scripts/shaders/list.gdshader" id="1_1wum3"]
+[ext_resource type="Script" uid="uid://b15ryp4u5kat7" path="res://addons/whitecell/scripts/ui/list.gd" id="2_jpii3"]
+[ext_resource type="FontFile" uid="uid://c2fck10de53iy" path="res://addons/whitecell/sprites/fonts/chakra_petch/chakra_petch_semibold.ttf" id="2_o8xha"]
+[ext_resource type="Shader" uid="uid://dsvqa3bpw1r5c" path="res://addons/whitecell/scripts/shaders/error.gdshader" id="4_n72qn"]
+[ext_resource type="FontFile" uid="uid://but47y6v5ypuf" path="res://addons/whitecell/sprites/fonts/chakra_petch/chakra_petch_regular.ttf" id="5_xtnc3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jdkwl"]
+shader = ExtResource("1_1wum3")
+shader_parameter/rwidth = 3.0
+shader_parameter/rheight = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xtnc3"]
+shader = ExtResource("4_n72qn")
+shader_parameter/rwidth = 3.0
+shader_parameter/rheight = 2.0
+
+[node name="list" type="ColorRect"]
+material = SubResource("ShaderMaterial_jdkwl")
+custom_minimum_size = Vector2(300, 500)
+color = Color(0.8, 0, 0, 1)
+script = ExtResource("2_jpii3")
+
+[node name="header" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 300.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("2_o8xha")
+theme_override_font_sizes/font_size = 36
+text = "list"
+alignment = 1
+flat = true
+
+[node name="scroll_container" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 300.0
+offset_bottom = 448.0
+
+[node name="todo" type="VBoxContainer" parent="scroll_container"]
+layout_mode = 2
+
+[node name="error" type="ColorRect" parent="scroll_container/todo"]
+material = SubResource("ShaderMaterial_xtnc3")
+custom_minimum_size = Vector2(300, 64)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="label" type="Label" parent="scroll_container/todo/error"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 448.0
+offset_bottom = 106.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("5_xtnc3")
+theme_override_font_sizes/font_size = 32
+text = "lorem ipsum
+aaaa"
+autowrap_mode = 3
+clip_text = true
+
+[node name="color_rect" type="ColorRect" parent="scroll_container/todo/error"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 8.0
+offset_right = 280.0
+offset_bottom = 56.0
+
+[node name="new_error" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 448.0
+offset_right = 300.0
+offset_bottom = 500.0
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="button" type="Button" parent="new_error"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("2_o8xha")
+theme_override_font_sizes/font_size = 32
+text = "+"
+flat = true
