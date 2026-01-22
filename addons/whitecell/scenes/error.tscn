@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw4n48fdwcy3y"]
+
+[ext_resource type="Shader" uid="uid://dsvqa3bpw1r5c" path="res://addons/whitecell/scripts/shaders/error.gdshader" id="1_y8mem"]
+[ext_resource type="Script" uid="uid://bij1j4xgx0c8x" path="res://addons/whitecell/scripts/ui/error.gd" id="2_6at25"]
+[ext_resource type="FontFile" uid="uid://but47y6v5ypuf" path="res://addons/whitecell/sprites/fonts/chakra_petch/chakra_petch_regular.ttf" id="2_ajmke"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xtnc3"]
+shader = ExtResource("1_y8mem")
+shader_parameter/rwidth = 3.0
+shader_parameter/rheight = 2.0
+
+[node name="error" type="ColorRect"]
+material = SubResource("ShaderMaterial_xtnc3")
+custom_minimum_size = Vector2(300, 64)
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_6at25")
+
+[node name="label" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 448.0
+offset_bottom = 106.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_ajmke")
+theme_override_font_sizes/font_size = 32
+text = "lorem ipsum
+"
+
+[node name="complete" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 8.0
+offset_right = 280.0
+offset_bottom = 56.0
+color = Color(1, 1, 1, 0.2509804)
+
+[node name="button" type="Button" parent="complete"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 48.0
+flat = true
+
+[node name="icon" type="Label" parent="complete"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 30
+text = "✓"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="complete/button" to="." method="complete_error"]
