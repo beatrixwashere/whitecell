@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://1m1lnddoy520"]
+[gd_scene load_steps=5 format=3 uid="uid://1m1lnddoy520"]
 
 [ext_resource type="FontFile" uid="uid://c2fck10de53iy" path="res://addons/whitecell/sprites/fonts/chakra_petch/chakra_petch_semibold.ttf" id="1_2dnf3"]
+[ext_resource type="Script" uid="uid://badjgjdfq16vy" path="res://addons/whitecell/scripts/ui/listing.gd" id="2_bym4p"]
 [ext_resource type="PackedScene" uid="uid://cfc5xh024ml0b" path="res://addons/whitecell/scenes/list.tscn" id="2_wu7x4"]
+[ext_resource type="Script" uid="uid://blpi4u7ilak7q" path="res://addons/whitecell/scripts/ui/saveload.gd" id="3_jdkwl"]
 
 [node name="whitecell" type="CenterContainer"]
 anchors_preset = 15
@@ -33,32 +35,34 @@ layout_mode = 2
 [node name="lists" type="HBoxContainer" parent="main/listscroll"]
 layout_mode = 2
 theme_override_constants/separation = 50
+script = ExtResource("2_bym4p")
 
 [node name="s1" parent="main/listscroll/lists" instance=ExtResource("2_wu7x4")]
 layout_mode = 2
 
-[node name="s2" parent="main/listscroll/lists" instance=ExtResource("2_wu7x4")]
+[node name="add" type="Button" parent="main/listscroll/lists"]
 layout_mode = 2
-color = Color(0.8, 0.4, 0, 1)
-list_name = "S2"
+theme_override_font_sizes/font_size = 36
+text = " + "
 
-[node name="s3" parent="main/listscroll/lists" instance=ExtResource("2_wu7x4")]
+[node name="saveload" type="HBoxContainer" parent="main"]
 layout_mode = 2
-color = Color(0.8, 0.6666667, 0, 1)
-list_name = "S3"
-
-[node name="complete" parent="main/listscroll/lists" instance=ExtResource("2_wu7x4")]
-layout_mode = 2
-color = Color(0.5333333, 0.8, 0, 1)
-list_name = "Complete"
-
-[node name="options" type="HBoxContainer" parent="main"]
-layout_mode = 2
+theme_override_constants/separation = 16
 alignment = 1
+script = ExtResource("3_jdkwl")
 
-[node name="header" type="Label" parent="main/options"]
+[node name="save" type="Button" parent="main/saveload"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_2dnf3")
-theme_override_font_sizes/font_size = 48
-text = "[placeholder]"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 36
+text = " save "
+
+[node name="load" type="Button" parent="main/saveload"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2dnf3")
+theme_override_font_sizes/font_size = 36
+text = " load "
+
+[connection signal="button_down" from="main/listscroll/lists/add" to="main/listscroll/lists" method="new_list"]
+[connection signal="button_down" from="main/saveload/save" to="main/saveload" method="save_lists"]
+[connection signal="button_down" from="main/saveload/load" to="main/saveload" method="load_lists"]

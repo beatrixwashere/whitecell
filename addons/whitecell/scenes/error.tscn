@@ -24,8 +24,7 @@ offset_bottom = 106.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("2_ajmke")
 theme_override_font_sizes/font_size = 32
-text = "lorem ipsum
-"
+text = "todo"
 
 [node name="complete" type="ColorRect" parent="."]
 layout_mode = 0
