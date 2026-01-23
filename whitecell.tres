@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WhitecellData" load_steps=2 format=3 uid="uid://1tvkhghofqtw"]
+
+[ext_resource type="Script" uid="uid://dsebbya538iqt" path="res://addons/whitecell/scripts/resources/savedata.gd" id="1_srshb"]
+
+[resource]
+script = ExtResource("1_srshb")
+list_names = ["list", "list"]
+list_colors = [Color(0.8, 0, 0, 1), Color(0.8, 0.4, 0, 1)]
+list_items = [["todo"], ["todo"]]
