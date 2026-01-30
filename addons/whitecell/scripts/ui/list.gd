@@ -5,6 +5,7 @@ extends ColorRect
 
 func new_error(ename: String = "todo") -> void:
 	var error_node: Node = load("res://addons/whitecell/scenes/error.tscn").instantiate()
+	error_node.get_node("label_rich").text = ename
 	$scroll/todo.add_child(error_node)
 
 
