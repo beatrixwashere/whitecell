@@ -11,9 +11,10 @@ func save_lists() -> void:
 			new_data.list_colors.append(i.color)
 			var i_items: Array
 			for j in i.get_node("scroll/todo").get_children():
-				i_items.append(j.get_node("label").text)
+				i_items.append(j.get_node("label_edit").text)
 			new_data.list_items.append(i_items)
 	DirAccess.remove_absolute("res://whitecell.tres")
+	new_data.take_over_path("res://whitecell.tres")
 	ResourceSaver.save(new_data, "res://whitecell.tres")
 
 
