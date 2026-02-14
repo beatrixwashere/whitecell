@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://c7kcvln13lqga" path="res://addons/whitecell/scripts/shaders/list.gdshader" id="1_1wum3"]
 [ext_resource type="Script" uid="uid://b15ryp4u5kat7" path="res://addons/whitecell/scripts/ui/list.gd" id="2_jpii3"]
 [ext_resource type="FontFile" uid="uid://c2fck10de53iy" path="res://addons/whitecell/sprites/fonts/chakra_petch/chakra_petch_semibold.ttf" id="2_o8xha"]
-[ext_resource type="PackedScene" uid="uid://bw4n48fdwcy3y" path="res://addons/whitecell/scenes/error.tscn" id="4_n72qn"]
+[ext_resource type="PackedScene" uid="uid://bw4n48fdwcy3y" path="res://addons/whitecell/scenes/task.tscn" id="4_n72qn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jdkwl"]
 shader = ExtResource("1_1wum3")
@@ -38,10 +38,10 @@ offset_bottom = 448.0
 [node name="todo" type="VBoxContainer" parent="scroll" unique_id=605331869]
 layout_mode = 2
 
-[node name="error" parent="scroll/todo" unique_id=620040598 instance=ExtResource("4_n72qn")]
+[node name="task" parent="scroll/todo" unique_id=620040598 instance=ExtResource("4_n72qn")]
 layout_mode = 2
 
-[node name="new_error" type="ColorRect" parent="." unique_id=1837239720]
+[node name="new_task" type="ColorRect" parent="." unique_id=1837239720]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 448.0
@@ -49,7 +49,7 @@ offset_right = 252.0
 offset_bottom = 500.0
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="button" type="Button" parent="new_error" unique_id=761062161]
+[node name="button" type="Button" parent="new_task" unique_id=761062161]
 layout_mode = 0
 offset_right = 204.0
 offset_bottom = 52.0
@@ -166,7 +166,7 @@ offset_right = 264.0
 offset_bottom = 368.0
 text = "x"
 
-[connection signal="button_down" from="new_error/button" to="." method="new_error"]
+[connection signal="button_down" from="new_task/button" to="." method="new_task"]
 [connection signal="button_down" from="move_left/button" to="." method="move_list" binds= [-1]]
 [connection signal="button_down" from="move_right/button" to="." method="move_list" binds= [1]]
 [connection signal="button_down" from="delete/button" to="." method="delete_list"]

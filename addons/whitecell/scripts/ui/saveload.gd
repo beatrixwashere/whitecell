@@ -11,7 +11,12 @@ func save_lists() -> void:
 			new_data.list_colors.append(i.color)
 			var i_items: Array
 			for j in i.get_node("scroll/todo").get_children():
-				i_items.append(j.get_node("label_rich").text)
+				var j_items: Array
+				j_items.append(j.get_node("label_rich").text)
+				for k in j.get_node("subtasks").get_children():
+					if k.name != "add":
+						j_items.append(k.get_node("label_edit").text)
+				i_items.append(j_items)
 			new_data.list_items.append(i_items)
 	DirAccess.remove_absolute($savepath.text)
 	new_data.take_over_path($savepath.text)
@@ -33,4 +38,9 @@ func load_lists() -> void:
 		i_list.color = loaded_data.list_colors[i]
 		i_list.get_node("color/picker/dialog").color = loaded_data.list_colors[i]
 		for j in loaded_data.list_items[i]:
-			i_list.new_error(j)
+			if j is String:
+				i_list.new_task(j)
+			elif j is Array:
+				var j_task: Node = i_list.new_task(j[0])
+				for k in j.size() - 1:
+					j_task.new_subtask(j[k + 1])

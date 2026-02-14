@@ -8,5 +8,5 @@ func new_list(lname: String = "list", empty: bool = false) -> Node:
 	add_child(list_node)
 	move_child(list_node, get_child_count() - 2)
 	if empty:
-		list_node.get_node("scroll/todo/error").queue_free()
+		list_node.get_node("scroll/todo/task").queue_free()
 	return list_node
