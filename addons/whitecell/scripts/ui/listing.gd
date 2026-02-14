@@ -5,6 +5,7 @@ extends Node
 
 func new_list(lname: String = "list", empty: bool = false) -> Node:
 	var list_node: Node = load("res://addons/whitecell/scenes/list.tscn").instantiate()
+	list_node.get_node("header").text = lname
 	add_child(list_node)
 	move_child(list_node, get_child_count() - 2)
 	if empty:
