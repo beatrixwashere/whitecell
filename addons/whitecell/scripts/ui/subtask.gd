@@ -8,4 +8,4 @@ func complete_subtask() -> void:
 
 
 func move_subtask(diff: int) -> void:
-	get_parent().move_child(self, min(max(get_index() + diff, 0), get_parent().get_child_count() - 1))
+	get_parent().move_child(self, min(max(get_index() + diff, 0), get_parent().get_child_count() - 2))
