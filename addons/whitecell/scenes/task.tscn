@@ -152,15 +152,24 @@ offset_right = 300.0
 offset_bottom = 256.0
 theme_override_constants/separation = 0
 
-[node name="add" type="Button" parent="subtasks" unique_id=444110495]
+[node name="add" type="ColorRect" parent="subtasks" unique_id=1136711526]
+material = SubResource("ShaderMaterial_xtnc3")
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="button" type="Button" parent="subtasks/add" unique_id=444110495]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 24.0
 theme_override_font_sizes/font_size = 10
 text = "+"
+flat = true
 
 [connection signal="editing_toggled" from="label_edit" to="." method="switch_display"]
 [connection signal="button_down" from="complete/button" to="." method="complete_task"]
-[connection signal="button_down" from="move_up/button" to="." method="move_task"]
-[connection signal="button_down" from="move_down/button" to="." method="move_task"]
+[connection signal="button_down" from="move_up/button" to="." method="move_task" binds= [-1]]
+[connection signal="button_down" from="move_down/button" to="." method="move_task" binds= [1]]
 [connection signal="button_down" from="show_subs/button" to="." method="toggle_subtasks"]
-[connection signal="button_down" from="subtasks/add" to="." method="new_subtask"]
+[connection signal="button_down" from="subtasks/add/button" to="." method="new_subtask"]
