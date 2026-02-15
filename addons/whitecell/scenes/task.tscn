@@ -34,6 +34,18 @@ offset_bottom = 56.0
 theme_override_fonts/normal_font = ExtResource("3_orow2")
 theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
+vertical_alignment = 1
+
+[node name="placeholder" type="RichTextLabel" parent="." unique_id=55058642]
+self_modulate = Color(1, 1, 1, 0.7529412)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 232.0
+offset_bottom = 56.0
+theme_override_fonts/normal_font = ExtResource("3_orow2")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
 text = "todo"
 vertical_alignment = 1
 

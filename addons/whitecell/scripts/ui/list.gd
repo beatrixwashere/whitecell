@@ -3,9 +3,10 @@ extends ColorRect
 ## handles list customization and orgnaization
 
 
-func new_task(tname: String = "todo") -> Node:
+func new_task(tname: String = "") -> Node:
 	var task_node: Node = load("res://addons/whitecell/scenes/task.tscn").instantiate()
 	task_node.get_node("label_rich").text = tname
+	task_node.get_node("placeholder").visible = tname == ""
 	$scroll/todo.add_child(task_node)
 	return task_node
 
